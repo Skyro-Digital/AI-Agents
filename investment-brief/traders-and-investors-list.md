@@ -1,0 +1,96 @@
+# Traders and Investors List
+
+- Bob Loukas
+    - X - https://x.com/BobLoukas
+    - YT - https://www.youtube.com/@bobloukas3493
+    - Bitcoinlive - https://bitcoin.live/blogs/premium
+- TraderMayne
+    - X - https://x.com/Tradermayne
+    - YT - https://www.youtube.com/@TraderMayne
+    - Discord 1 (TM charts) - https://discord.com/channels/436247542737534977/436249316416421888
+    - Discord 2 (Haven charts) - https://discord.com/channels/689839056598990895/1108872241707499601
+    - Discord 3 (Haven crypto trade ideas) - https://discord.com/channels/689839056598990895/1108872466887098438
+    - Discord 4 (Haven tradfi trade ideas) - https://discord.com/channels/689839056598990895/1108872466887098438
+- Loma
+    - X - https://x.com/LomahCrypto
+    - Discord 1 (market thoughts and inner monologues) - https://discord.com/channels/689839056598990895/838227564006211595
+    - Discord 2 (50k side quest) - https://discord.com/channels/689839056598990895/1427386959235383429
+- ColdBloodedShiller
+    - X - https://x.com/ColdBloodShill
+    - YT - https://www.youtube.com/@ColdBloodedShiller
+    - Discord 1 (spot crypto 2025) - https://discord.com/channels/689839056598990895/1327413038734905354
+    - Discord 2 (tradfi 2025) - https://discord.com/channels/689839056598990895/1327412971458269226
+    - Discord 3 (leverage trades 2025) - https://discord.com/channels/689839056598990895/1327413122847215616
+- Mercury
+    - X - https://x.com/TraderMercury
+    - Discord 1 (live market update) - https://discord.com/channels/689319290222280713/689319778070036581
+    - Discord 2 (daily market update) - https://discord.com/channels/689319290222280713/689319731970310144
+    - YT - https://www.youtube.com/@TraderMercury
+- Follis
+    - X - https://x.com/follis_
+- Smiley
+    - X - https://x.com/smileycapital
+- DonAlt
+    - X - https://x.com/DonAlt
+    - YT - https://www.youtube.com/@TechnicalRoundup
+- Pentoshi
+    - X - https://x.com/Pentosh1
+- Citrini
+    - X - https://x.com/Citrini7
+    - Substack - https://substack.com/@citrini/posts
+- Incomesharks
+    - X - https://x.com/IncomeSharks
+- CryptoCondom
+    - X - https://x.com/crypto_condom
+- Insomniac
+    - X - https://x.com/insomniacxbt
+    - Substack - https://substack.com/@insomniacxbt/notes
+- Michael Paik
+    - X - https://x.com/paik_michael
+- HDF
+    - X - https://x.com/PaikCapital
+- Fejau
+    - X - https://x.com/fejau_inc
+- Forward guidance
+    - X - https://x.com/ForwardGuidance
+    - YT - https://www.youtube.com/@ForwardGuidanceBW
+- Blockworks
+    - X - https://x.com/Blockworks
+- Quinn Thompson
+    - X - https://x.com/qthomp
+    - Substack - https://substack.com/@quinnthompson/posts
+- Myles G Investments
+    - X - https://x.com/MylesGinvest
+    - YT - https://www.youtube.com/@MylesGInvestments
+    - Telegram -
+- ExitLiqNick
+    - X - https://x.com/ExitLiqCapital
+- Bluntz
+    - X - https://x.com/Bluntz_Capital
+- CredibleCrypto
+    - X - https://x.com/CredibleCrypto
+    - YT - https://www.youtube.com/@CredibleCrypto
+- Giver
+    - X - https://x.com/lazyvillager1
+- Noodles
+    - X - https://x.com/criptopaul
+- Benjamin Cowen
+    - X - https://x.com/intocryptoverse
+    - YT - https://www.youtube.com/@intothecryptoverse
+- Anbessa
+    - X - https://x.com/Anbessa100
+    - Telegram
+- Feyronn
+    - X - https://x.com/feyronn
+- TraderXO
+    - X - https://x.com/Trader_XO
+    - YT - https://www.youtube.com/@TraderXO/featured
+- Plur Daddy
+    - X - https://x.com/plur_daddy
+- BattleRhino
+    - X - https://x.com/lBattleRhino
+- CavanXY
+    - X - https://x.com/CavanXy
+- Killaxbt
+    - X - https://x.com/KillaXBT
+    - YT - https://www.youtube.com/@KillaXBT/featured

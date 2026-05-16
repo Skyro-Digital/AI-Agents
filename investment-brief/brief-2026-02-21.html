@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Brief — February 21, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    padding: 40px;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  .subtitle { color: #8b949e; font-size: 13px; margin-bottom: 32px; }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #58a6ff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 36px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #21262d;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e6edf3;
+    margin: 24px 0 8px;
+  }
+  h3 .handle { color: #8b949e; font-weight: 400; font-size: 13px; }
+  p { margin-bottom: 10px; color: #c9d1d9; }
+  .source-link { font-size: 12px; color: #8b949e; margin-bottom: 10px; }
+  .source-link a { color: #58a6ff; text-decoration: none; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 13px;
+  }
+  th {
+    background: #161b22;
+    color: #8b949e;
+    text-align: left;
+    padding: 8px 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+    vertical-align: top;
+  }
+  tr:hover td { background: #161b22; }
+  .bullish { color: #3fb950; font-weight: 600; }
+  .bearish { color: #f85149; font-weight: 600; }
+  .neutral { color: #e3b341; font-weight: 600; }
+  .watching { color: #8b949e; font-weight: 600; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tag-bull { background: rgba(63,185,80,0.15); color: #3fb950; }
+  .tag-bear { background: rgba(248,81,73,0.15); color: #f85149; }
+  .tag-neutral { background: rgba(227,179,65,0.15); color: #e3b341; }
+  .market-snapshot td:first-child { font-weight: 600; color: #e6edf3; }
+  .callout {
+    background: #161b22;
+    border-left: 3px solid #58a6ff;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout.warning { border-left-color: #f85149; }
+  .callout.success { border-left-color: #3fb950; }
+  .callout strong { color: #e6edf3; }
+  .theme-item {
+    background: #161b22;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .theme-item strong { color: #e6edf3; }
+  .takeaway {
+    background: #161b22;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-left: 3px solid #3fb950;
+  }
+  .takeaway strong { color: #e6edf3; }
+  .no-content { color: #8b949e; font-style: italic; font-size: 13px; }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #21262d;
+    color: #8b949e;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .tier-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(88,166,255,0.15);
+    color: #58a6ff;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .mini-table td { font-size: 12px; padding: 6px 10px; }
+  .mini-table th { font-size: 10px; padding: 6px 10px; }
+  .up { color: #3fb950; }
+  .down { color: #f85149; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Investment Brief</h1>
+  <div class="subtitle">February 21, 2026 &nbsp;·&nbsp; Coverage: Feb 14–21, 2026 &nbsp;·&nbsp; 20 of 27 traders with content</div>
+
+  <!-- MARKET SNAPSHOT -->
+  <h2>Market Snapshot</h2>
+  <table class="market-snapshot">
+    <thead><tr><th>Market</th><th>Level</th><th>7D Change</th><th>Trend</th></tr></thead>
+    <tbody>
+      <tr><td>BTC</td><td>~$67,900</td><td class="down">~-2%</td><td>Down</td></tr>
+      <tr><td>ETH</td><td>~$1,980</td><td class="down">~-5%</td><td>Down</td></tr>
+      <tr><td>S&amp;P 500</td><td>6,909</td><td class="up">+0.69%</td><td>Volatile / Flat</td></tr>
+      <tr><td>NASDAQ</td><td>22,886</td><td class="up">+0.90%</td><td>Volatile / Flat</td></tr>
+      <tr><td>DXY</td><td>97.79</td><td class="down">-6%+ from Feb high (103)</td><td>Down sharply</td></tr>
+      <tr><td>10Y Yield</td><td>4.09%</td><td class="down">-5 bps</td><td>Slightly Down</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Key macro:</strong> SCOTUS struck down Trump tariffs Feb 20 (~$130B in revenue in question). Fed on hold with hawkish tilt (Powell: "hard to say policy is significantly restrictive"). DXY breakdown from 103 → 97.79 is the week's most notable macro signal.
+  </div>
+
+  <p><strong style="color:#e6edf3;">Upcoming catalysts:</strong></p>
+  <ul style="margin: 8px 0 16px 20px; color: #c9d1d9;">
+    <li><strong>Feb 25 (after close): NVIDIA earnings</strong> — ~7.1% of S&amp;P 500 weight. Single largest near-term market event.</li>
+    <li>Feb 24: Home Depot, Alibaba earnings</li>
+    <li>Feb 26: Q4 2025 GDP revision, Jobless Claims</li>
+    <li>Ongoing: Tariff policy evolution following SCOTUS ruling</li>
+  </ul>
+
+  <!-- CONSENSUS TABLE -->
+  <h2>Consensus Stance Table</h2>
+  <table>
+    <thead><tr><th>Asset</th><th>Bullish</th><th>Bearish</th><th>Neutral</th><th>Net</th></tr></thead>
+    <tbody>
+      <tr><td><strong>BTC</strong></td><td>Myles G</td><td>Loukas, Pentoshi, Smiley, Cowen, ExitLiqNick</td><td>IncomeSharks, Mercury</td><td><span class="tag tag-bear">Bearish</span></td></tr>
+      <tr><td><strong>ETH</strong></td><td>CredibleCrypto</td><td>Follis</td><td>—</td><td><span class="tag tag-neutral">Mixed</span></td></tr>
+      <tr><td><strong>Altcoins</strong></td><td>Myles G (broad)</td><td>Pentoshi, Smiley, Cowen, Fejau, PaikCapital, Mercury</td><td>—</td><td><span class="tag tag-bear">Strongly Bearish</span></td></tr>
+      <tr><td><strong>S&amp;P 500</strong></td><td>—</td><td>Quinn Thompson, ColdBloodedShiller, Loukas</td><td>Fwd Guidance (rotation)</td><td><span class="tag tag-bear">Bearish near-term</span></td></tr>
+      <tr><td><strong>Mag7 / Big Tech</strong></td><td>—</td><td>Quinn Thompson, Fejau, Fwd Guidance</td><td>—</td><td><span class="tag tag-bear">Bearish</span></td></tr>
+      <tr><td><strong>Gold</strong></td><td>Quinn Thompson, Fwd Guidance</td><td>—</td><td>—</td><td><span class="tag tag-bull">Bullish</span></td></tr>
+      <tr><td><strong>Energy / Commodities</strong></td><td>Bluntz, Fwd Guidance, Loukas (oil), Citrini</td><td>—</td><td>—</td><td><span class="tag tag-bull">Bullish</span></td></tr>
+      <tr><td><strong>Uranium</strong></td><td>Bluntz, ColdBloodedShiller</td><td>—</td><td>—</td><td><span class="tag tag-bull">Bullish</span></td></tr>
+      <tr><td><strong>SOL</strong></td><td>Bluntz (high conviction)</td><td>—</td><td>—</td><td><span class="tag tag-bull">Bullish</span></td></tr>
+      <tr><td><strong>Real Assets</strong></td><td>Quinn Thompson, Fejau, Fwd Guidance, Citrini</td><td>—</td><td>—</td><td><span class="tag tag-bull">Strong Bullish</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <strong>Notable disagreements:</strong> BTC: Myles G calls $72K breakout; Loukas says needs $72K reclaim (it's a floor not a target); Pentoshi targets $74–80K retest to the downside. Same level, opposite direction. // ETH: CredibleCrypto sees 5-year demand zone buy; Follis is skeptical ETH can recover. // Crypto recovery timing: Myles G says imminent; Cowen/Mercury/PaikCapital say structural headwinds push it much further out.
+  </div>
+
+  <!-- TIER 1 -->
+  <h2>Tier 1 — Substack Traders <span class="tier-badge">Deep Analysis</span></h2>
+
+  <h3>Citrini <span class="handle">@Citrini7</span></h3>
+  <div class="source-link">Source: <a href="https://www.citriniresearch.com/p/thematic-update-modern-warfare">Thematic Update: Modern Warfare — Directed Energy Weapons, Subsea Drones & Arctic Defense</a> — Feb 18, 2026 (paywalled)</div>
+  <p>Modern warfare is evolving asymmetrically, creating durable investment opportunities in smaller defense enablers — autonomous systems, directed energy, electronic warfare — rather than traditional large primes. Three tailwinds: rising defense budgets, disruptive tech with public market access, and accelerating geopolitical fracture. Prior "Drones basket" trade referenced as performing "exceptionally well." Note: his Feb 11 post (just outside window) framed the macro as "Atoms vs. Bits" — rotating from digital/SaaS into physical/materials. Consistent with the week's dominant cross-trader theme.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>Directed Energy Weapons</td><td class="bullish">Bullish</td><td>Long-term</td><td>Real-world validation; asymmetric cost advantage</td></tr>
+      <tr><td>Subsea Drones</td><td class="bullish">Bullish</td><td>Long-term</td><td>Ukrainian operations validated demand</td></tr>
+      <tr><td>Arctic/Greenland Defense</td><td class="bullish">Bullish</td><td>Long-term</td><td>US interest in Greenland; underpriced by markets</td></tr>
+      <tr><td>Small/Mid Defense Enablers</td><td class="bullish">Bullish</td><td>Medium-term</td><td>Higher upside than large primes</td></tr>
+      <tr><td>Oil Services</td><td class="bullish">Bullish</td><td>Medium-term</td><td>Beneficiary of Arctic and energy geopolitics</td></tr>
+      <tr><td>Large Defense Primes (LMT, RTX)</td><td class="neutral">Neutral</td><td>—</td><td>Receive most budget dollars but lower upside</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Quinn Thompson <span class="handle">@qthomp</span></h3>
+  <div class="source-link">
+    <a href="https://www.lekkercapital.com/p/scouting-the-tape-feb-15-2026">Scouting the Tape — Feb 15</a> &nbsp;·&nbsp;
+    <a href="https://www.lekkercapital.com/p/fed-treasury-coordination-in-plain">Fed-Treasury Coordination in Plain Sight — Feb 16</a>
+  </div>
+  <p>Thompson is in a clear risk-off posture. Extreme hedge fund gross exposure, multi-year-low cash levels, and 99th-percentile stock dispersion are precursors to a "violent" 4–6 week equity correction. His second post reveals the Fed is running de facto QE via "Reserve Management Purchases" — buying $40B/month in long-duration bonds while Treasury cuts coupon issuance, suppressing 10–30Y yields by 50–100bps. Financial repression in plain sight. Gold and hard assets are the structural beneficiaries.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>US Large-Cap Tech / Mag7</td><td class="bearish">Bearish</td><td>4–6 weeks</td><td>Overextended positioning; market generals underperforming</td></tr>
+      <tr><td>Semiconductors (SMH)</td><td class="bearish">Bearish</td><td>Short-term</td><td>Crowded; Mag7/semi negative correlation = prior selloff signal</td></tr>
+      <tr><td>S&amp;P 500</td><td class="bearish">Bearish</td><td>Short-term</td><td>Months of distribution; liquidity deteriorating</td></tr>
+      <tr><td>US Treasuries (10–30Y)</td><td class="bearish">Bearish</td><td>Medium-term</td><td>10Y at 4% is "way too low"; suppression is unsustainable</td></tr>
+      <tr><td>US Dollar (DXY)</td><td class="bearish">Bearish</td><td>Medium-term</td><td>"Some of the worst-looking charts globally"</td></tr>
+      <tr><td>Gold</td><td class="bullish">Bullish</td><td>Long-term</td><td>Superior safe haven; financial repression beneficiary</td></tr>
+      <tr><td>Luxury Goods / Real Estate</td><td class="bullish">Bullish</td><td>Long-term</td><td>Scarcity-based; AI cannot replicate physical assets</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <strong>Notable levels:</strong> 10Y at ~4% = significantly overvalued. 2Y at 3.4% = fair value. Kevin Warsh's first FOMC flagged as potential steepening catalyst.
+  </div>
+
+  <h3>Insomniac <span class="handle">@insomniacxbt</span></h3>
+  <p class="no-content">No recent content found. No public Substack identified despite extensive searching.</p>
+
+  <!-- TIER 2 -->
+  <h2>Tier 2 — YouTube + X Traders <span class="tier-badge">Video & Social</span></h2>
+
+  <h3>Bob Loukas <span class="handle">@BobLoukas</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/BobLoukas">X/Twitter</a> — Feb 17–20, 2026</div>
+  <p>Explicit bear market mode. The flush without a counter-trend bounce is his primary signal — bear markets don't bounce after flushes. Simultaneously cautious on equities (SPX cycle risk) and identifies a potential multi-year cycle bottom forming in crude oil.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>BTC</td><td class="bearish">Bearish</td><td>Near-term</td><td>No bounce after flush = bear market; needs $72K reclaim</td></tr>
+      <tr><td>S&amp;P 500</td><td class="neutral">Cautious</td><td>6-month</td><td>Repeated cycle low breaches = Daily Cycle failure risk</td></tr>
+      <tr><td>Crude Oil</td><td class="bullish">Bullish</td><td>Multi-year cycle</td><td>4-year decline may be ending; cycle bottom thesis</td></tr>
+      <tr><td>Macro</td><td class="neutral">Cautious</td><td>Near-term</td><td>Stagflation signal: growth miss + inflation beat</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warning"><strong>Key level: $72,000</strong> — BTC must reclaim this before any counter-trend thesis is viable.</div>
+
+  <h3>TraderMayne <span class="handle">@Tradermayne</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/Tradermayne">X/Twitter</a> — Feb 18–21, 2026</div>
+  <p>Light commentary week, mostly chart-only posts. Primary substantive call: NVIDIA's chart looks like a potential bull trap heading into earnings.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>NVDA / Stock Market</td><td class="bearish">Cautious/Bearish</td><td>Near-term</td><td>Chart looks like bull trap; market fate hinges on NVIDIA</td></tr>
+      <tr><td>Dow Jones (US30)</td><td class="neutral">Neutral</td><td>Near-term</td><td>Bulls need to reclaim a specific structural level</td></tr>
+      <tr><td>BTC</td><td class="watching">Watching</td><td>Near-term</td><td>H12/H1 pattern forming — resolution pending</td></tr>
+    </tbody>
+  </table>
+
+  <h3>ColdBloodedShiller <span class="handle">@ColdBloodShill</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/ColdBloodShill">X/Twitter</a> — Feb 16–21, 2026</div>
+  <p>Actively short the S&amp;P 500. The 4H bullish divergence played out via a sweep of equal highs at SPX 6,900 — that move is done, structure returns to downtrend. Any RSI reset bounce is a shorting opportunity. Separately bullish on uranium miners and has a high-conviction unnamed long ("easiest play since metals").</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>S&amp;P 500</td><td class="bearish">Bearish</td><td>Near-term</td><td>Actively short; equal highs at 6,900 swept, back to downtrend</td></tr>
+      <tr><td>URNM (Uranium Miners)</td><td class="bullish">Bullish</td><td>Near-term</td><td>Technical breakout setup</td></tr>
+      <tr><td>AMZN</td><td class="neutral">Watching</td><td>Medium-term</td><td>Structurally interesting; monthly bearish div not resolved; not buying</td></tr>
+      <tr><td>Unnamed long</td><td class="bullish">Bullish</td><td>Near-term</td><td>"Easiest play since metals" — asset not disclosed publicly</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Mercury <span class="handle">@TraderMercury</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/TraderMercury">X/Twitter</a> — Feb 15–21, 2026</div>
+  <p>Macro-cautious, big-picture view. Crypto's fate is tied to equities — if stocks top, crypto suffers more. But crypto historically bottoms before stocks. Current environment is preparation phase, not profit phase. $HYPE stands out for relative strength.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>Crypto (broad)</td><td class="neutral">Cautious</td><td>Cycle-level</td><td>Tied to equity fate; use prior cycles as navigation guide</td></tr>
+      <tr><td>Altcoins</td><td class="bearish">Bearish</td><td>Medium-term</td><td>Broken below multi-month ranges</td></tr>
+      <tr><td>$HYPE</td><td class="bullish">Cautiously Bullish</td><td>Near-term</td><td>Relative strength vs. broader alts; watching for trend reclaim</td></tr>
+    </tbody>
+  </table>
+
+  <h3>DonAlt <span class="handle">@DonAlt</span></h3>
+  <p class="no-content">No market commentary this week. 2 non-market tweets posted.</p>
+
+  <h3>Forward Guidance <span class="handle">@ForwardGuidance</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/ForwardGuidance">X/Twitter</a> + Blockworks Weekly Roundup — Feb 21. Guests: @TgMacro, @dailydirtnap, @qthomp, @fejau_inc</div>
+  <p>"The everything trade is over." Capital is rotating from digital abundance (Mag7, SaaS, passive indices) to physical scarcity (energy, gold miners, materials). Manufacturing PMI back above 50 and positive payrolls are early-cycle reflation signals. With dispersion at the 99th percentile, 2026 is a stock-picker's market.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>Big Tech / Mag7</td><td class="bearish">Bearish</td><td>Medium-term</td><td>Capital explicitly leaving; AI threatens multiples before fundamentals deteriorate</td></tr>
+      <tr><td>High-Multiple SaaS</td><td class="bearish">Bearish</td><td>Medium-term</td><td>"Even the threat of a threat is enough to question 30x multiples"</td></tr>
+      <tr><td>Gold Miners</td><td class="bullish">Bullish</td><td>Medium-term</td><td>Not crowded despite gold's run; early in allocation cycle</td></tr>
+      <tr><td>Energy Stocks</td><td class="bullish">Bullish</td><td>Medium-term</td><td>Decoupling from oil price; independent technical strength</td></tr>
+      <tr><td>Yield Curve Steepener</td><td class="bullish">Bullish</td><td>Medium-term</td><td>Active trade; discussed by multiple guests</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Myles G Investments <span class="handle">@MylesGinvest</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/MylesGinvest">X/Twitter</a> — Feb 20–21, 2026</div>
+  <p>Aggressively contrarian bullish on crypto. Frames current fear as the buy signal. BTC is "breaking out" with a $72K near-term target. Also tracks BTC/oil inverse correlation as a timing signal. <em>Note: sentiment-driven thesis, not structural analysis.</em></p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>BTC</td><td class="bullish">Strongly Bullish</td><td>Short-term</td><td>"Breaking out"; $72K target; "smart money accumulating"</td></tr>
+      <tr><td>Crypto (broad)</td><td class="bullish">Bullish</td><td>Short-term</td><td>Contrarian buy at peak fear; "FUD is a psyop"</td></tr>
+    </tbody>
+  </table>
+
+  <h3>CredibleCrypto <span class="handle">@CredibleCrypto</span></h3>
+  <div class="source-link">Source: <a href="https://x.com/CredibleCrypto">X/Twitter</a> + <a href="https://t.co/Wg9uCg4V8S">CVX Research Article</a> — Feb 16–21, 2026</div>
+  <p>Selective but high-conviction crypto longs. ETH at the lows of a 5-year consolidation range at monthly demand — strong structural buy. CVX has a triple-digit long-term target (48% of max supply now locked, growing 4% in one month). CRV has a defined upside path conditional on BTC support.</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>ETH</td><td class="bullish">Strongly Bullish (spot)</td><td>Long-term</td><td>5-year consolidation low / monthly demand zone</td></tr>
+      <tr><td>CVX</td><td class="bullish">Strongly Bullish</td><td>Cycle (long)</td><td>Triple-digit target; 48% supply locked; bi-weekly yield generation</td></tr>
+      <tr><td>CRV</td><td class="bullish">Cautiously Bullish</td><td>Short-to-medium</td><td>Target $.26–$.27; $.30+ if resistance clears; contingent on BTC</td></tr>
+      <tr><td>Zero-fundamental meme coins</td><td class="bearish">Bearish</td><td>—</td><td>May never recover from 97% drawdowns</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Benjamin Cowen <span class="handle">@intocryptoverse</span></h3>
+  <div class="source-link">
+    <a href="https://x.com/intocryptoverse">X/Twitter</a> &nbsp;·&nbsp;
+    <a href="https://benjamincowen.com/reports/macro-risk-memo-feb-2026">Macro Risk Memo Feb 2026</a> &nbsp;·&nbsp;
+    <a href="https://www.youtube.com/watch?v=rDYzbxeMWdY">YouTube: "Why ALT Season Never Happened" (Feb 20)</a>
+  </div>
+  <p>Alt season never materialized because global liquidity remained restrictive throughout the cycle — narrow leadership, not broad participation. Without a systemic crisis forcing central bank pivots, alt season is structurally impossible. BTC peaked Q4 2025 consistent with post-halving timing. Also live-tweeted Trump's tariff escalation to 15% global (Feb 21).</p>
+  <table class="mini-table">
+    <thead><tr><th>Asset</th><th>Stance</th><th>Timeframe</th><th>Reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>BTC</td><td class="neutral">Neutral/Bearish</td><td>Near-to-medium</td><td>Post-halving peak Q4 2025; midterm contraction phase</td></tr>
+      <tr><td>Altcoins</td><td class="bearish">Bearish</td><td>Current cycle</td><td>No alt season; narrow leadership; malinvestment damaged confidence</td></tr>
+      <tr><td>Energy / Industrials</td><td class="bullish">Bullish</td><td>Medium-term</td><td>AI/electrification infrastructure structural demand</td></tr>
+      <tr><td>Macro</td><td class="neutral">Cautious</td><td>H1 2026</td><td>Tariff escalation; restrictive policy; potential dollar strength</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TIER 3 -->
+  <h2>Tier 3 — X-Only Traders <span class="tier-badge">Brief Mentions</span></h2>
+  <table>
+    <thead><tr><th>Trader</th><th>Asset</th><th>Stance</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pentoshi</strong></td><td>BTC</td><td class="bearish">Bearish</td><td>$74–80K retest within 2 weeks; avg cost $68,576; holding</td></tr>
+      <tr><td><strong>Pentoshi</strong></td><td>Alts</td><td class="bearish">Bearish</td><td>Expects new lows; AI/tech competing for capital</td></tr>
+      <tr><td><strong>Pentoshi</strong></td><td>Equities</td><td class="bullish">Bullish/Active</td><td>99% of active trading moved to equities</td></tr>
+      <tr><td><strong>Fejau</strong></td><td>Mag7/Tech</td><td class="bearish">Bearish</td><td>"Hide in physical assets until it blows over"</td></tr>
+      <tr><td><strong>Fejau</strong></td><td>Financials</td><td class="bullish">Bullish</td><td>Deregulation + yield curve steepening</td></tr>
+      <tr><td><strong>Fejau</strong></td><td>Physical/Real Assets</td><td class="bullish">Bullish</td><td>Primary rotation destination; highest conviction</td></tr>
+      <tr><td><strong>Fejau</strong></td><td>Crypto/DeFi</td><td class="neutral">Cautious</td><td>"Industry needs to pay for sins" before recovery</td></tr>
+      <tr><td><strong>Follis</strong></td><td>BTC</td><td class="neutral">Cautious</td><td>Bearish divergence: OI rising, spot CVD falling</td></tr>
+      <tr><td><strong>Follis</strong></td><td>ETH</td><td class="bearish">Negative</td><td>Below $2K; skeptical of recovery</td></tr>
+      <tr><td><strong>Smiley</strong></td><td>Crypto</td><td class="bearish">Bearish</td><td>"Expecting lower prices across the board in 2026"; short perps</td></tr>
+      <tr><td><strong>Smiley</strong></td><td>Meme tokens</td><td class="bearish">Strongly Negative</td><td>"Cancer of crypto"; extracted capital from productive alts</td></tr>
+      <tr><td><strong>IncomeSharks</strong></td><td>TSLA</td><td class="bullish">Bullish on dips</td><td>"Love it when it's lower"</td></tr>
+      <tr><td><strong>IncomeSharks</strong></td><td>FRPT</td><td class="bullish">Bullish</td><td>"Breaking out again"</td></tr>
+      <tr><td><strong>IncomeSharks</strong></td><td>BTC</td><td class="neutral">Patient/Neutral</td><td>High-timeframe plan; avoid noise</td></tr>
+      <tr><td><strong>CryptoCondom</strong></td><td>JPM</td><td class="bearish">Short</td><td>$86.8M C-suite insider selling in 2 days</td></tr>
+      <tr><td><strong>CryptoCondom</strong></td><td>XPRO</td><td class="bullish">Long (largest position)</td><td>Zero debt, growing FCF, M&amp;A target potential</td></tr>
+      <tr><td><strong>CryptoCondom</strong></td><td>ONDS / UMAC</td><td class="bullish">Bullish</td><td>Drone defense; US-Iran conflict thesis; Howard/Cantor buying</td></tr>
+      <tr><td><strong>CryptoCondom</strong></td><td>AAVE</td><td class="neutral">Cautious</td><td>BGD Labs (core devs) departed = security risk</td></tr>
+      <tr><td><strong>PaikCapital</strong></td><td>Alts</td><td class="bearish">Bearish (structural)</td><td>100x more token launches = supply dilution destroying alt season</td></tr>
+      <tr><td><strong>Bluntz</strong></td><td>SOL</td><td class="bullish">⭐ Bullish — High Conviction</td><td>"Bottom is in here" — 1,166 likes / 108 RTs (highest engagement of week)</td></tr>
+      <tr><td><strong>Bluntz</strong></td><td>Copper</td><td class="bullish">Bullish</td><td>Repeating silver's 2025 breakout; 3-year channel setting up</td></tr>
+      <tr><td><strong>Bluntz</strong></td><td>XLE / Energy</td><td class="bullish">Bullish</td><td>"New rotation for 2026"; downtrend breakout vs. S&amp;P 500</td></tr>
+      <tr><td><strong>Bluntz</strong></td><td>Uranium</td><td class="bullish">Bullish</td><td>Chart posted; tracking the setup</td></tr>
+      <tr><td><strong>Bluntz</strong></td><td>Gold/Silver</td><td class="neutral">Neutral</td><td>"So last year" — rotating attention elsewhere</td></tr>
+      <tr><td><strong>ExitLiqNick</strong></td><td>Crypto</td><td class="bearish">Bearish</td><td>"Bear market rally"; persistent selling pressure</td></tr>
+      <tr><td><strong>Lazyvillager</strong></td><td>ZRO</td><td class="bearish">Mildly Bearish</td><td>Broke below wick start — technically negative signal</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>No recent market content found for:</strong> Loma, Michael Paik, Noodles, Anbessa, DonAlt, Insomniac &nbsp;·&nbsp; <strong>News only:</strong> Blockworks
+  </div>
+
+  <!-- KEY THEMES -->
+  <h2>Key Themes This Week</h2>
+
+  <div class="theme-item">
+    <strong>1. "The Everything Trade Is Over" — Rotation from Digital to Physical</strong>
+    <p style="margin-top:6px;">The single most powerful cross-trader consensus in this brief. Quinn Thompson, Fejau, Forward Guidance, Citrini, Bluntz, and Bob Loukas are independently reaching the same conclusion: capital is leaving Mag7/tech/passive indices and rotating into energy, commodities, gold miners, and supply-constrained physical businesses. Five independent analysts converging on the same macro framework in the same week is as strong a signal as this brief produces.</p>
+  </div>
+
+  <div class="theme-item">
+    <strong>2. Crypto Bear Market Consensus with No Alt Season</strong>
+    <p style="margin-top:6px;">Near-universal agreement that the traditional alt season playbook has failed this cycle, and the reasons are structural. Cowen (tight liquidity = narrow leadership), PaikCapital (100x token dilution), Pentoshi (AI competing for capital), Smiley (Pump.fun extracting productive capital), and Fejau (DeFi needs to "pay for sins") all point to the same outcome from different angles.</p>
+  </div>
+
+  <div class="theme-item">
+    <strong>3. BTC $72K Is the Line in the Sand</strong>
+    <p style="margin-top:6px;">Bob Loukas's specific level is the clearest near-term technical marker. Both the bear case (Pentoshi: $74–80K retest downward) and the bull case (Myles G: $72K breakout) converge on this price as critical. Until it resolves, the structural picture is bearish.</p>
+  </div>
+
+  <div class="theme-item">
+    <strong>4. Commodity Rotation Has Five Independent Validators</strong>
+    <p style="margin-top:6px;">Bluntz (copper, XLE, uranium), Forward Guidance (energy, gold miners), ColdBloodedShiller (uranium/URNM), Bob Loukas (crude oil cycle bottom), and Citrini (oil services, Arctic defense) — independently pointing to commodities as the 2026 opportunity. This many distinct perspectives on the same trade is unusual.</p>
+  </div>
+
+  <div class="theme-item">
+    <strong>5. NVIDIA Earnings (Feb 25) Is the Market's Binary Event</strong>
+    <p style="margin-top:6px;">TraderMayne flagged a potential bull trap. Loukas is cautious on SPX cycle risk. Quinn Thompson predicted a "violent" 4–6 week correction starting mid-February. NVIDIA is the forced pivot point where the bull/bear equity thesis gets tested in real time.</p>
+  </div>
+
+  <!-- ACTIONABLE TAKEAWAYS -->
+  <h2>Actionable Takeaways</h2>
+
+  <div class="takeaway">
+    <strong>Commodity/energy rotation is the week's highest-conviction consensus trade.</strong>
+    <p style="margin-top:6px;">Five independent data points: XLE (Bluntz's top pick), uranium miners via URNM (Bluntz + ColdBloodedShiller), copper (Bluntz), crude oil (Loukas), general energy/gold miners (Forward Guidance). This is a regime positioning call, not a timing trade.</p>
+  </div>
+
+  <div class="takeaway">
+    <strong>SOL is the highest-conviction crypto long of the week.</strong>
+    <p style="margin-top:6px;">Bluntz's "bottom is in here" generated 1,166 likes and 108 retweets — highest engagement directional crypto call of the week by a significant margin. If holding any crypto longs, this is where trader conviction is concentrated right now.</p>
+  </div>
+
+  <div class="takeaway">
+    <strong>Don't force a directional BTC call before $72K resolves.</strong>
+    <p style="margin-top:6px;">Bears and bulls both converge on this level for opposite reasons. Let it resolve before sizing up either direction.</p>
+  </div>
+
+  <div class="takeaway">
+    <strong>Spot ETH has the most structurally grounded crypto bull case.</strong>
+    <p style="margin-top:6px;">CredibleCrypto's 5-year consolidation low / monthly demand thesis is analytically sound with a clear invalidation level. If accumulating crypto on a long-term horizon, ETH here has a defined framework.</p>
+  </div>
+
+  <div class="takeaway">
+    <strong>Reduce Mag7/tech exposure before Feb 25.</strong>
+    <p style="margin-top:6px;">Quinn Thompson (4–6 week correction called Feb 15), Fejau (explicit rotation out), Forward Guidance ("capital is leaving Big Tech") all point the same direction. NVIDIA earnings on Feb 25 is the catalyst that accelerates or delays this thesis.</p>
+  </div>
+
+  <div class="takeaway">
+    <strong>Gold and gold miners remain a consensus long.</strong>
+    <p style="margin-top:6px;">Quinn Thompson (strong structural conviction, financial repression thesis) + Forward Guidance guests (not crowded yet). In a financial repression environment, gold is the canonical beneficiary — and the allocation cycle is still early.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <strong>Brief generated:</strong> February 21, 2026<br>
+    <strong>Sources searched:</strong> X/Twitter (via API — 15 traders), Substack (Citrini, Quinn Thompson), YouTube, Web (market data)<br>
+    <strong>Sources NOT accessible:</strong> Discord (private), bitcoin.live (premium)<br>
+    <strong>Insomniac Substack:</strong> Not found<br>
+    <strong>Traders with market content found:</strong> 20 of 27 tracked<br>
+    <strong>No recent content:</strong> Loma, Michael Paik, Noodles, Anbessa, DonAlt, Insomniac
+  </div>
+
+</div>
+</body>
+</html>

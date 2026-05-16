@@ -1,0 +1,23 @@
+# Secrets & credentials
+.mcp.json
+
+# Claude local settings (contains personal permissions/paths)
+.claude/settings.local.json
+.claude/settings.json
+.claude/scheduled_tasks.lock
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+*.log
+
+# OS
+.DS_Store

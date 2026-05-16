@@ -1,0 +1,19 @@
+{
+  "clients": [
+    {
+      "id": "example-client",
+      "name": "Example Client",
+      "slack_channel_id": "REPLACE_WITH_CHANNEL_ID",
+      "competitors": [
+        {
+          "name": "Competitor Brand A",
+          "domain": "competitora.com"
+        },
+        {
+          "name": "Competitor Brand B",
+          "domain": "competitorb.com"
+        }
+      ]
+    }
+  ]
+}
