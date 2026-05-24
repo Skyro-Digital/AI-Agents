@@ -3,35 +3,49 @@
 post_digest.py — Posts the weekly competitor intel digest to Slack.
 
 Reads /tmp/digest.json (written by the Claude agent after collecting Trendtrack data).
-Ad thumbnails are served through images.weserv.nl (a free image proxy CDN) so the
-hover/copy URL in Slack shows images.weserv.nl, not the original source.
+All images (ad thumbnails, email screenshots) are uploaded to imgbb.com first, so
+hover/copy URLs in Slack show i.ibb.co, not the original source CDN.
 
 Usage:
-  SLACK_BOT_TOKEN=xoxb-... python3 post_digest.py [/path/to/digest.json]
+  SLACK_BOT_TOKEN=xoxb-... IMGBB_API_KEY=... python3 post_digest.py [/path/to/digest.json]
 """
 
 import json
 import os
 import subprocess
 import sys
-import urllib.parse
 from datetime import datetime
 
 DIGEST_PATH = sys.argv[1] if len(sys.argv) > 1 else "/tmp/digest.json"
 TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
+IMGBB_KEY = os.environ.get("IMGBB_API_KEY", "")
 
 if not TOKEN:
     print("ERROR: SLACK_BOT_TOKEN environment variable not set")
     sys.exit(1)
 
+if not IMGBB_KEY:
+    print("ERROR: IMGBB_API_KEY environment variable not set")
+    sys.exit(1)
 
-def proxy_image_url(original_url):
-    """Wrap a thumbnail URL in the wsrv.nl proxy so the source CDN is hidden."""
+
+def upload_to_imgbb(original_url):
+    """Upload an image URL to imgbb and return the hosted i.ibb.co URL."""
     if not original_url:
         return None
-    # Strip the scheme — wsrv.nl wants the URL without https://
-    stripped = original_url.replace("https://", "").replace("http://", "")
-    return f"https://images.weserv.nl/?url={urllib.parse.quote(stripped)}"
+    result = subprocess.run(
+        ["curl", "-s", "-X", "POST", f"https://api.imgbb.com/1/upload",
+         "--form", f"key={IMGBB_KEY}",
+         "--form", f"image={original_url}"],
+        capture_output=True, text=True
+    )
+    try:
+        data = json.loads(result.stdout)
+        if data.get("success"):
+            return data["data"]["url"]
+    except Exception:
+        pass
+    return None
 
 
 def build_fb_link(ad_id):
@@ -103,6 +117,18 @@ def post_client_digest(client, week_range):
                 "type": "section",
                 "text": {"type": "mrkdwn", "text": "*Emails sent this week:*\n" + "\n".join(lines)}
             })
+            # Show screenshot of the most recent email
+            top_screenshot_src = next(
+                (e["screenshot_url"] for e in emails if e.get("screenshot_url")),
+                None
+            )
+            top_screenshot = upload_to_imgbb(top_screenshot_src) if top_screenshot_src else None
+            if top_screenshot:
+                blocks.append({
+                    "type": "image",
+                    "image_url": top_screenshot,
+                    "alt_text": f"{comp_name} most recent email"
+                })
 
         # Ad sections — one per ad, with thumbnail inline as accessory image
         ads = comp.get("ads", [])
@@ -131,7 +157,7 @@ def post_client_digest(client, week_range):
             )
 
             thumbnail_url = ad.get("thumbnail_url", "")
-            proxied = proxy_image_url(thumbnail_url)
+            proxied = upload_to_imgbb(thumbnail_url) if thumbnail_url else None
 
             if proxied:
                 blocks.append({
