@@ -6,19 +6,19 @@ You are running Skyro Digital's weekly competitor intelligence automation. Your 
 
 ---
 
-## Step 1 — Read the client list
+## Step 1 -- Read the client list
 
-Read the file at `/Users/maxalderman/AI Agents - Max/trendtrack-intelligence/clients.json`.
+Read the file at `trendtrack-intelligence/clients.json` (relative to the working directory).
 
 This file contains all active clients and their competitors. Process every client in the list.
 
 ---
 
-## Step 2 — For each client, fetch competitor data
+## Step 2 -- For each client, fetch competitor data
 
 For each client, loop through their competitors. For each competitor domain:
 
-### Emails (campaigns only — no flows)
+### Emails (campaigns only -- no flows)
 Make **one call** to `search_emails`:
 
 `search_emails(shop="<domain>", timeframe="7d", intent="all", limit=10)`
@@ -27,160 +27,122 @@ From the results, **exclude** any email where:
 - `classification.event.name` is "Abandoned Cart" or "Welcome"
 - or the intent classification is `abandoned_cart` or `welcome`
 
-Keep everything else — product campaigns, promotional campaigns, newsletters, etc.
+Keep everything else -- product campaigns, promotional campaigns, newsletters, etc.
 
-**Skip and log** if 0 emails remain after filtering — write a note "No campaign emails found for [Brand]" but continue processing.
+**Skip and log** if 0 emails remain after filtering -- note "No campaign emails found for [Brand]" but continue processing.
 
 ### Ads (active Meta ads)
 Call `brief_competitor(competitor="<domain>", sections=["ads"], max_ads=5)`
 
 This returns the top 5 active Meta ads for the competitor, ranked by recent reach growth.
 
-**Skip and log** if a competitor returns 0 ads — write a note "No active ads found for [Brand]" but continue processing.
+**Skip and log** if a competitor returns 0 ads -- note "No active ads found for [Brand]" but continue processing.
 
 ### If a domain can't be resolved at all
-If Trendtrack returns an error or empty result for a domain, log "Could not resolve [Brand] ([domain]) — skipping" and move on. Never crash or stop processing other clients.
+If Trendtrack returns an error or empty result for a domain, log "Could not resolve [Brand] ([domain]) -- skipping" and move on. Never crash or stop processing other clients.
 
 ---
 
-## Step 3 — Write the pattern summary
+## Step 3 -- Write the pattern summary
 
-After collecting all data for a client's competitors, write a 2–4 sentence summary paragraph analyzing what patterns you're seeing across all of them that week. Look for:
+After collecting all data for a client's competitors, write a 2-4 sentence summary paragraph analyzing what patterns you are seeing across all of them that week. Look for:
 
 - Common offer types (discounts, free shipping, bundles, urgency)
 - Dominant messaging angles (education, social proof, fear, aspiration)
 - Ad creative trends (video vs image, short vs long copy, UGC)
 - Any brand that went unusually quiet or suddenly ramped up
 
-Keep this analytical and useful — this is what turns raw data into strategic intelligence for the client.
+Keep this analytical and useful -- this is what turns raw data into strategic intelligence for the client.
 
-**Framing**: Write as if you're Skyro Digital's in-house analyst. No mention of Trendtrack, no mention of data tools. Sound like a human expert who monitors competitors closely.
+**Framing**: Write as if you are Skyro Digital's in-house analyst. No mention of Trendtrack, no mention of data tools. Sound like a human expert who monitors competitors closely.
 
 ---
 
-## Step 4 — Format the Slack message
+## Step 4 -- Build the digest data file
 
-Build a JSON payload for the Slack API. Use this structure for each client:
+Build a JSON object for the full digest and write it to `/tmp/digest.json`. Use this exact structure:
 
 ```json
 {
-  "channel": "<client.slack_channel_id>",
-  "username": "Skyro Intelligence",
-  "icon_emoji": ":bar_chart:",
-  "blocks": [
+  "week_range": "May 19-25",
+  "clients": [
     {
-      "type": "header",
-      "text": {
-        "type": "plain_text",
-        "text": "Competitor Intel — Week of [Mon date] – [Sun date]"
-      }
-    },
-    {
-      "type": "context",
-      "elements": [
+      "id": "client-slug",
+      "name": "Client Name",
+      "slack_channel_id": "C123456789",
+      "competitors": [
         {
-          "type": "mrkdwn",
-          "text": "Monitoring [N] competitor(s) for [Client Name]"
+          "name": "Competitor Brand",
+          "domain": "domain.com",
+          "emails": [
+            {
+              "subject": "Email subject line",
+              "sent_at": "2026-05-21",
+              "sent_day": "Thu May 21",
+              "category": "Product Campaign"
+            }
+          ],
+          "ads": [
+            {
+              "id": "facebook_995080903463724",
+              "media_type": "video",
+              "thumbnail_url": "https://medias.trendtrack.io/thumbnails/facebook/...",
+              "body": "Full ad copy text here...",
+              "cta": "Shop Now",
+              "landing_path": "/products/...",
+              "days_running": 41,
+              "reach_delta_7d": 2833,
+              "cta_description": "Optional fallback if body is empty"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "type": "divider"
-    },
-    ... one section per competitor (see format below) ...
-    {
-      "type": "divider"
-    },
-    {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "*:mag: This Week's Pattern*\n[2–4 sentence summary from Step 3]"
-      }
+      ],
+      "pattern_summary": "2-4 sentence analysis of trends across all competitors this week.",
+      "skipped": ["competitora.com (no data)", "competitorb.com (error)"]
     }
   ]
 }
 ```
 
-### Per-competitor section format
+### Field notes:
+- `week_range`: Format as "May 19-25" (no year)
+- `sent_day`: Format as "Thu May 21" (3-letter day, 3-letter month, day number)
+- `id` for ads: Keep the full Trendtrack ID including the "facebook_" prefix
+- `thumbnail_url`: The full Trendtrack thumbnail URL -- the poster script will download and re-upload to Slack
+- `body`: Full ad copy (not truncated -- the poster script handles truncation)
+- `landing_path`: Just the URL path, not the full domain (e.g. "/products/ceylon-cinnamon")
+- `skipped`: List any competitors with no data or errors, as strings
+- Only include competitors that had at least 1 email or 1 ad -- skip competitors with both empty
 
-For each competitor, build these blocks:
-
-**Competitor header:**
-```json
-{
-  "type": "section",
-  "text": {
-    "type": "mrkdwn",
-    "text": "*[Competitor Name]* — [domain]\n_[N] email campaign(s) · [N] active ad(s) this week_"
-  }
-}
-```
-
-**Emails block** (if any emails found):
-```json
-{
-  "type": "section",
-  "text": {
-    "type": "mrkdwn",
-    "text": "*Emails sent this week:*\n• \"[Subject Line]\" — [Day, Month Date] · [promo / newsletter]\n• \"[Subject Line]\" — [Day, Month Date] · [promo / newsletter]\n..."
-  }
-}
-```
-
-Only include up to 7 emails in the message. If there are more, add a line: "_+ [N] more emails this week_"
-
-**Top ad block** (if any ads found — show top 2 by reach growth):
-For each ad, include:
-```json
-{
-  "type": "section",
-  "text": {
-    "type": "mrkdwn",
-    "text": "*Top ad* (running [N] days · +[reachDelta7d] reach this week)\n\"[First 200 chars of ad copy body...]\"\n→ CTA: [callToAction] · Landing: [path of landingPageUrl only, not full domain]"
-  },
-  "accessory": {
-    "type": "image",
-    "image_url": "[thumbnailUrl]",
-    "alt_text": "[Competitor Name] ad"
-  }
-}
-```
-
-If the ad has no copy body, use the `ctaDescription` field instead. If both are empty, skip the ad.
-
-**Divider between competitors:**
-```json
-{ "type": "divider" }
-```
+Write the JSON to `/tmp/digest.json` using the Write tool or bash.
 
 ---
 
-## Step 5 — Post to Slack
+## Step 5 -- Post to Slack
 
-For each client, post using the Slack API via bash:
+Run the poster script:
 
 ```bash
-curl -s -X POST https://slack.com/api/chat.postMessage \
-  -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '<JSON payload>'
+python3 trendtrack-intelligence/post_digest.py /tmp/digest.json
 ```
 
-The `SLACK_BOT_TOKEN` environment variable holds the bot token (starts with `xoxb-`).
+The `SLACK_BOT_TOKEN` environment variable is already set in the runtime environment.
 
-Check the response. If `"ok": true` — success. If `"ok": false` — log the error message and continue to the next client. Never stop the whole run because one client's post failed.
+The script will:
+- Post a structured Block Kit message for each client (emails + ad copy text)
+- Upload each ad thumbnail to Slack (so no Trendtrack CDN URLs appear) and post it as an inline image with ad details
+- Print a run summary when complete
 
-**Slack block limit**: Slack allows max 50 blocks per message. If a client has many competitors and would exceed 50 blocks, split into two messages for that client: first message covers competitors, second message covers the pattern summary.
+Check the printed output. If any client failed, log the error but continue to the next one.
 
 ---
 
-## Step 6 — Log a run summary
+## Step 6 -- Output a run summary
 
-After processing all clients, output a brief run summary:
+After the poster script completes, output the run summary it printed. Format:
 
 ```
-✅ Run complete — [timestamp]
+Run complete -- [timestamp]
 Clients processed: [N]
 Competitors checked: [N]
 Emails found: [N total across all]
@@ -195,7 +157,7 @@ Errors: [list any failures]
 ## Rules
 
 - **Never mention Trendtrack** in any Slack message. The data should appear to come from Skyro Digital's own monitoring.
-- **Never crash** — if any individual competitor or client fails, log it and move to the next one.
-- **Skip empty sections** — if a competitor had 0 campaign emails, don't show the emails section for them. Just show ads (and vice versa). If a competitor had 0 of both, skip them entirely and log it.
-- **Keep copy excerpts short** — truncate ad copy to 200 characters max in Slack messages. The goal is signal, not a full transcript.
-- **Date format**: Use "Mon May 5" style (no year) for email sent dates. Use "May 5–11" style for the digest header date range.
+- **Never crash** -- if any individual competitor or client fails, log it and move to the next one.
+- **Skip empty sections** -- if a competitor had 0 campaign emails AND 0 ads, skip them entirely in the JSON (add them to `skipped` instead).
+- **Keep the JSON clean** -- the poster script does all formatting. Your job is accurate data collection, not formatting.
+- **Date format**: Use "Thu May 21" style for email sent dates. Use "May 19-25" style for the week_range.

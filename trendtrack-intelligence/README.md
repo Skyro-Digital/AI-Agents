@@ -10,6 +10,9 @@ Runs every Monday morning. For each active client, pulls the past week's competi
 |---|---|---|
 | `clients.json` | Client list with competitors and Slack channel IDs | Frequently — when adding/removing clients or competitors |
 | `prompt.md` | Instructions the AI agent follows each run | Rarely — only to change tone, format, or what's included |
+| `post_digest.py` | Python script that posts the digest to Slack | Never — it's infrastructure |
+
+**How it works**: The agent (Claude) calls Trendtrack to collect competitor data, writes it to `/tmp/digest.json`, then runs `post_digest.py` to post everything to Slack. The Python script downloads all ad thumbnails from Trendtrack and re-uploads them to Slack's CDN so no external data source URLs are ever visible in the messages.
 
 ---
 

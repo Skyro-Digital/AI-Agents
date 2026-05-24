@@ -1,5 +1,9 @@
 # Secrets & credentials
 .mcp.json
+.env
+**/.env
+service-account.json
+**/service-account.json
 
 # Claude local settings (contains personal permissions/paths)
 .claude/settings.local.json
