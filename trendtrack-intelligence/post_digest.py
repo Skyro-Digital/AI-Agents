@@ -53,11 +53,10 @@ def build_fb_link(ad_id):
     return f"https://www.facebook.com/ads/library/?id={clean_id}"
 
 
-def slack_post(channel, blocks, username="Skyro Intelligence", icon=":bar_chart:"):
+def slack_post(channel, blocks, username="Skyro Intelligence"):
     payload = {
         "channel": channel,
         "username": username,
-        "icon_emoji": icon,
         "blocks": blocks
     }
     result = subprocess.run(
