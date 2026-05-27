@@ -1,10 +1,14 @@
 {
   "clients": [
     {
-      "id": "test-client",
-      "name": "Test Client",
+      "id": "primal-remedies",
+      "name": "Primal Remedies",
       "slack_channel_id": "D0B5982KTP1",
       "competitors": [
+        {
+          "name": "Elare",
+          "domain": "elare.store"
+        },
         {
           "name": "Lirae",
           "domain": "getlirae.com"
