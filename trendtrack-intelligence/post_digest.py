@@ -140,8 +140,6 @@ def post_client_digest(client, week_range):
                 body = body[:200] + "..."
 
             days = ad.get("days_running", "?")
-            reach = ad.get("reach_delta_7d", 0)
-            reach_str = f"+{reach:,}" if reach else "n/a"
             cta = ad.get("cta", "")
             landing = ad.get("landing_path", ad.get("landing_page_url", ""))
             ad_label = "Top ad" if i == 1 else "2nd ad"
@@ -149,7 +147,7 @@ def post_client_digest(client, week_range):
             fb_link = build_fb_link(ad.get("id", ""))
 
             text = (
-                f"*{ad_label}*{media_label} (running {days} days - {reach_str} reach this week)\n"
+                f"*{ad_label}*{media_label} (running {days} days)\n"
                 f"\"{body}\"\n"
                 f"CTA: {cta}  |  Landing: {landing}\n"
                 f"<{fb_link}|View ad on Facebook>"
