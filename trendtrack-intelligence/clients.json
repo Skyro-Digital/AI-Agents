@@ -14,6 +14,21 @@
           "domain": "getlirae.com"
         }
       ]
+    },
+    {
+      "id": "swingsetmall",
+      "name": "SwingSetMall",
+      "slack_channel_id": "D0B5982KTP1",
+      "competitors": [
+        {
+          "name": "WillyGoat",
+          "domain": "willygoat.com"
+        },
+        {
+          "name": "Swing Set Stuff",
+          "domain": "swingsetstuff.com"
+        }
+      ]
     }
   ]
 }
