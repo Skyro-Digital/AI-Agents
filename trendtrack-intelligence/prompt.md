@@ -29,14 +29,28 @@ From the results, **exclude** any email where:
 
 Keep everything else -- product campaigns, promotional campaigns, newsletters, etc.
 
+For each email kept, capture: `subject`, `sentAt`, `screenshotUrl` (if present), and `classification` (for the category label).
+
 **Skip and log** if 0 emails remain after filtering -- note "No campaign emails found for [Brand]" but continue processing.
 
 ### Ads (active Meta ads)
-Call `brief_competitor(competitor="<domain>", sections=["ads"], max_ads=5)`
+Use a two-step lookup:
 
-This returns the top 5 active Meta ads for the competitor, ranked by recent reach growth.
+**Step 1 -- Find the Facebook page:**
+`search_advertisers(query="<domain>", search_in="domain")`
 
-**Skip and log** if a competitor returns 0 ads -- note "No active ads found for [Brand]" but continue processing.
+Take the `id` field from the first result. This is the Facebook page ID.
+
+If `search_advertisers` returns no results, log "No ads found for [Brand] (not in Trendtrack)" and skip ads for this competitor.
+
+**Step 2 -- Fetch active ads:**
+`search_ads(tracked_pages=["<page_id>"], status="active", sort_by="createdAt", limit=3)`
+
+**Important**: Do NOT use `active_only=true` or the default `trend_signal` -- those apply a minimum-reach filter that silently drops ads with low or zero recent reach. Using `sort_by="createdAt"` bypasses this filter and returns all active ads.
+
+From each ad, capture: `id`, `media.type`, `media.thumbnailUrl`, `content.body`, `content.callToAction`, `content.landingPageUrl` (path only), `daysRunning`, `metrics.reachDelta7d`.
+
+**Skip and log** if `search_ads` returns 0 results -- note "No active ads found for [Brand]" but continue processing.
 
 ### If a domain can't be resolved at all
 If Trendtrack returns an error or empty result for a domain, log "Could not resolve [Brand] ([domain]) -- skipping" and move on. Never crash or stop processing other clients.
@@ -79,7 +93,8 @@ Build a JSON object for the full digest and write it to `/tmp/digest.json`. Use 
               "subject": "Email subject line",
               "sent_at": "2026-05-21",
               "sent_day": "Thu May 21",
-              "category": "Product Campaign"
+              "category": "Product Campaign",
+              "screenshot_url": "https://medias.trendtrack.io/screenshots/..."
             }
           ],
           "ads": [
@@ -108,7 +123,8 @@ Build a JSON object for the full digest and write it to `/tmp/digest.json`. Use 
 - `week_range`: Format as "May 19-25" (no year)
 - `sent_day`: Format as "Thu May 21" (3-letter day, 3-letter month, day number)
 - `id` for ads: Keep the full Trendtrack ID including the "facebook_" prefix
-- `thumbnail_url`: The full Trendtrack thumbnail URL -- the poster script will download and re-upload to Slack
+- `screenshot_url`: The full screenshotUrl from `search_emails` -- omit the field if not available for that email
+- `thumbnail_url`: The full Trendtrack thumbnail URL for ads -- the poster script proxies all images through a CDN
 - `body`: Full ad copy (not truncated -- the poster script handles truncation)
 - `landing_path`: Just the URL path, not the full domain (e.g. "/products/ceylon-cinnamon")
 - `skipped`: List any competitors with no data or errors, as strings
