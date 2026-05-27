@@ -29,6 +29,25 @@
           "domain": "swingsetstuff.com"
         }
       ]
+    },
+    {
+      "id": "ornate-home",
+      "name": "Ornate Home",
+      "slack_channel_id": "D0B5982KTP1",
+      "competitors": [
+        {
+          "name": "Luna Furniture",
+          "domain": "lunafurn.com"
+        },
+        {
+          "name": "Coleman Furniture",
+          "domain": "colemanfurniture.com"
+        },
+        {
+          "name": "1stopbedrooms",
+          "domain": "1stopbedrooms.com"
+        }
+      ]
     }
   ]
 }
