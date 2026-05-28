@@ -6,12 +6,40 @@
       "slack_channel_id": "D0B5982KTP1",
       "competitors": [
         {
-          "name": "Elare",
-          "domain": "elare.store"
+          "name": "Metabolae",
+          "domain": "metabolae.com"
+        },
+        {
+          "name": "Living Core",
+          "domain": "trylivingcore.com"
+        },
+        {
+          "name": "Sigrid Life",
+          "domain": "sigridlife.com"
+        },
+        {
+          "name": "Glucose Goddess",
+          "domain": "glucosegoddess.com"
         },
         {
           "name": "Lirae",
           "domain": "getlirae.com"
+        },
+        {
+          "name": "Resilia",
+          "domain": "resilia.shop"
+        },
+        {
+          "name": "Primus Health",
+          "domain": "primus-health.com"
+        },
+        {
+          "name": "Lanural",
+          "domain": "lanural.com"
+        },
+        {
+          "name": "Elare",
+          "domain": "elare.store"
         }
       ]
     },
